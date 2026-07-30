@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Android NDK
-        uses: nvida/setup-ndk@v1
+        uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25c
 
@@ -28,4 +28,5 @@ jobs:
           path: |
             build/
             artifacts/
+            profiles/
           if-no-files-found: ignore
