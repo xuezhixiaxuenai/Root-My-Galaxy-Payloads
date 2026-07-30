@@ -17,15 +17,15 @@ jobs:
         with:
           ndk-version: r25c
 
-      - name: Build All Payloads
+      - name: Build Target Payload
         run: |
-          make all ANDROID_NDK_HOME=$ANDROID_NDK_HOME
+          make TARGET=dm3q-S9180ZCS4CXJ1 ANDROID_NDK_HOME=$ANDROID_NDK_HOME
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: payload-built-artifact
           path: |
-            artifacts/
             build/
+            artifacts/
           if-no-files-found: warn
