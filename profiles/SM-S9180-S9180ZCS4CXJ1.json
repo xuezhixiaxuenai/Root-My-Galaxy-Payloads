@@ -1,19 +1,31 @@
-{
-  "model": "SM-S9180",
-  "firmware": "S9180ZCS4CXJ1",
-  "device_name": "Samsung Galaxy S23 Ultra",
-  "android_version": "14",
-  "one_ui_version": "6.1",
-  "arch": "arm64-v8a",
-  "kernel_version": "5.15.123",
-  "page_size": 4096,
-  "offsets": {
-    "prepare_kernel_cred": "0x11c8ac",
-    "commit_creds": "0x11e5a4",
-    "security_hook_heads": "0x1edf178",
-    "init_cred": "0x1ffee78",
-    "init_nsproxy": "0x28a2130",
-    "init_task": "0x29e7b40",
-    "selinux_state": "0x2b66390"
-  }
-}
+name: Build Payloads
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r25c
+
+      - name: Build Target Payload
+        run: |
+          make TARGET=dm3q-S9180ZCS4CXJ1 ANDROID_NDK_HOME=$ANDROID_NDK_HOME || true
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: payload-built-artifact
+          path: |
+            build/
+            artifacts/
+          if-no-files-found: ignore
