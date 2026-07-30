@@ -1,4 +1,12 @@
 {
+  "dm3q-S9180ZCS4CXJ1": {
+    "target": "dm3q-S9180ZCS4CXJ1",
+    "model": "SM-S9180",
+    "firmware": "S9180ZCS4CXJ1",
+    "display_id": "UP1A.231005.007.S9180ZCS4CXJ1",
+    "arch": "arm64-v8a",
+    "kernel_release": "5.15.123-android13-8-1837467-abS9180ZCS4CXJ1"
+  },
   "schemaVersion": 2,
   "targets": [
     {
