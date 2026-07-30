@@ -44,6 +44,7 @@
 #define ROOT_TASK_GROUP_IMAGE 0xffffffc00a800000ULL
 
 // ===== 3. Slide & File Operations 结构体宏定义 =====
+#define SLIDE_PSELECT_NFDS 256
 #define SLIDE_NFULNL_LOGGER_NAME_IMAGE 0xffffffc009e00000ULL
 #define SLIDE_NFULNL_LOGGER_OBJECT_IMAGE 0xffffffc009e00000ULL
 #define SLIDE_INIT_TASK_IMAGE 0xffffffc00a9e7b40ULL
